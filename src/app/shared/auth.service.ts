@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  endpoint: string = 'http://localhost:3000/api';
+  endpoint: string = 'https://oceanolimited.com/api';
+  // endpoint: string = 'http://localhost:3000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
   constructor(private http: HttpClient, public router: Router) {}
@@ -26,11 +27,17 @@ export class AuthService {
     return this.http
       .post<any>(`${this.endpoint}/users/login`, user)
       .subscribe((res: any) => {
-        localStorage.setItem('access_token', res.token);
+        if (res.success == 1) {
+          localStorage.setItem('access_token', res.token);
         this.getUserProfile(res._id).subscribe((res) => {
+          console.log(res)
           this.currentUser = res;
           this.router.navigate(['user-profile/' + res.msg._id]);
         });
+        } else {
+          console.log(res)
+        }
+        
       });
   }
   getToken() {
