@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EmployeeComponent } from './components/employee/employee.component';
 import { HomeComponent } from './components/home/home.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: 'log-in', component : SigninComponent},
   {path: 'sign-up', component : SignupComponent},
   {path: 'home', component : HomeComponent ,canActivate: [AuthGuard]},
+  {path: 'employee', component : EmployeeComponent ,canActivate: [AuthGuard]},
   {path: 'user-profile/:id', component : UserProfileComponent ,canActivate: [AuthGuard]},
 ];
 
@@ -19,4 +21,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [SigninComponent,SignupComponent,UserProfileComponent,HomeComponent]
+export const routingComponents = [SigninComponent,SignupComponent,UserProfileComponent,HomeComponent,EmployeeComponent]
