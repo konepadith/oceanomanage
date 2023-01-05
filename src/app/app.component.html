@@ -10,7 +10,56 @@
   <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-danger">Logout</button>
 </div> -->
 
+<div  [ngClass]="{ 'bodyn':  this.authService.isLoggedIn }">
+  <nav class="navbar navbar-expand-lg bg-nav navbar-dark mb-0 fixed-top" *ngIf="this.authService.isLoggedIn">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="../assets/image/logo.png" height="35" width="35" alt="" class="d-inline-block align-top">
+        <span>Oceano</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" routerLink="/home">ໜ້າຫຼັກ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"   routerLink="/adopt">ພະນັກງານ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"   routerLink="/donate">ເງິນເດືອນ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="/news_event">ຂ່າວ ແລະ ກິດຈະກຳ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="/contact">ຕິດຕໍ່</a>
+          </li>
+          <li  class="nav-item">
+            <a type="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo">ເຂົ້າສູ່ລະບົບ</a>
+          </li>
+          <li  class="nav-item">
+            <a type="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">ລົງທະບຽນ</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item">ໂປຣຟາຍຂອງຂ້ອຍ
+              </a></li>
+              <li><a class="dropdown-item" href="#">ການຈັດການ</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" (click)="logout()">ອອກຈາກລະບົບ</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 
 
   <router-outlet></router-outlet>
+</div>

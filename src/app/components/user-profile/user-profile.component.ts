@@ -22,5 +22,9 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  logout(){
+    
+    this.authService.doLogout()
+  }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   {path: '', redirectTo:'/log-in', pathMatch: 'full'},
   {path: 'log-in', component : SigninComponent},
   {path: 'sign-up', component : SignupComponent},
+  {path: 'home', component : HomeComponent ,canActivate: [AuthGuard]},
   {path: 'user-profile/:id', component : UserProfileComponent ,canActivate: [AuthGuard]},
 ];
 
@@ -17,4 +19,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [SigninComponent,SignupComponent,UserProfileComponent]
+export const routingComponents = [SigninComponent,SignupComponent,UserProfileComponent,HomeComponent]

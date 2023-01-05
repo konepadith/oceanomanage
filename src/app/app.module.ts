@@ -10,6 +10,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './components/home/home.component';
     SigninComponent,
     SignupComponent,
     UserProfileComponent,
-    HomeComponent
+    HomeComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
