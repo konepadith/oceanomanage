@@ -1,0 +1,26 @@
+.auth-wrapper{
+    background-image: url('../../../assets/image/pexels-anni-roenkae-2457278.jpg');
+}
+.oceano-bg{
+    background-image: url('../../../assets/image/pexels-anni-roenkae-2457278.jpg');
+    background-size: cover;
+}
+.oceano-logo{
+    width: 400px;
+}
+.oceano-center{
+    position: absolute;
+    top: 50% ;
+    transform: translate(0, -50%);
+}
+.oceano-form-bg{
+    position: absolute;
+    top: 50% ;
+    left: 25%;
+    transform: translate(0, -50%);
+    width: 50%;
+    height: 95%;
+    background-color: white;
+    padding: 50px;
+    border-radius: 5px;
+}

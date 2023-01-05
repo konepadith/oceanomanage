@@ -9,13 +9,15 @@ import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

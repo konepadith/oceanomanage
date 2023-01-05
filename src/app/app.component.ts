@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './shared/auth.service';
+
+import jwt_decode from "jwt-decode";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,6 +9,7 @@ import { AuthService } from './shared/auth.service';
 })
 export class AppComponent {
   constructor(public authService: AuthService) { }
+
   logout() {
     this.authService.doLogout()
   }
