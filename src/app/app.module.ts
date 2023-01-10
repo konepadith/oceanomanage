@@ -11,6 +11,8 @@ import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeeIdComponent } from './components/employee/employee-id/employee-id.component';
+import { EmployeeAllComponent } from './components/employee/employee-all/employee-all.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { EmployeeComponent } from './components/employee/employee.component';
     SignupComponent,
     UserProfileComponent,
     HomeComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EmployeeIdComponent,
+    EmployeeAllComponent
   ],
   imports: [
     BrowserModule,
