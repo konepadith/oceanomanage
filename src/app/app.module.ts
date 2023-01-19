@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeIdComponent } from './components/employee/employee-id/employee-id.component';
 import { EmployeeAllComponent } from './components/employee/employee-all/employee-all.component';
+import { EmployeeRegisterComponent } from './components/employee/employee-register/employee-register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EmployeeAllComponent } from './components/employee/employee-all/employe
     HomeComponent,
     EmployeeComponent,
     EmployeeIdComponent,
-    EmployeeAllComponent
+    EmployeeAllComponent,
+    EmployeeRegisterComponent
   ],
   imports: [
     BrowserModule,
