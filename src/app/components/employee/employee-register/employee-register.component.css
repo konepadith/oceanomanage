@@ -1,0 +1,11 @@
+.left-side{
+    border: 1px solid red;
+    width: 25%;
+}
+.right-side{
+    border: 1px solid red;
+    width: 75%;
+}
+*{
+    font-family: "phetsarath ot";
+}

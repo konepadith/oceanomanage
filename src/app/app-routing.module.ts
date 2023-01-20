@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeIdComponent } from './components/employee/employee-id/employee-id.component';
+import { EmployeeRegisterComponent } from './components/employee/employee-register/employee-register.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { HomeComponent } from './components/home/home.component';
 import { SigninComponent } from './components/signin/signin.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'home', component : HomeComponent ,canActivate: [AuthGuard]},
   {path: 'employee', component : EmployeeComponent ,canActivate: [AuthGuard]},
   {path: 'user-profile/:id', component : UserProfileComponent ,canActivate: [AuthGuard]},
-  {path: 'employee/:emp_id', component : EmployeeIdComponent ,canActivate: [AuthGuard]}
+  {path: 'employee/id/:emp_id', component : EmployeeIdComponent ,canActivate: [AuthGuard]},
+  {path: 'employee/register', component : EmployeeRegisterComponent ,canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -23,4 +25,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [SigninComponent,SignupComponent,UserProfileComponent,HomeComponent,EmployeeComponent,EmployeeIdComponent]
+export const routingComponents = [SigninComponent,SignupComponent,UserProfileComponent,HomeComponent,EmployeeComponent,EmployeeIdComponent,EmployeeRegisterComponent]
