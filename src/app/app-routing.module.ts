@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmployeeIdComponent } from './components/employee/employee-id/employee-id.component';
 import { EmployeeRegisterComponent } from './components/employee/employee-register/employee-register.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { HrRegisterComponent } from './components/employee/hr-register/hr-register.component';
 import { HomeComponent } from './components/home/home.component';
 import { SalaryComponent } from './components/salary/salary.component';
 import { SigninComponent } from './components/signin/signin.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'employee', component : EmployeeComponent ,canActivate: [AuthGuard]},
   {path: 'user-profile/:id', component : UserProfileComponent ,canActivate: [AuthGuard]},
   {path: 'employee/id/:emp_id', component : EmployeeIdComponent ,canActivate: [AuthGuard]},
-  {path: 'employee/register', component : EmployeeRegisterComponent ,canActivate: [AuthGuard]}
+  {path: 'employee/register', component : EmployeeRegisterComponent ,canActivate: [AuthGuard]},
+  {path: 'employee/hr', component : HrRegisterComponent ,canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -34,4 +36,5 @@ export const routingComponents = [SigninComponent,
   EmployeeComponent,
   EmployeeIdComponent,
   SalaryComponent,
-  EmployeeRegisterComponent]
+  EmployeeRegisterComponent,
+  HrRegisterComponent]
