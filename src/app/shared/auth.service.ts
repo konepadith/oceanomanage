@@ -9,19 +9,20 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   // endpoint: string = 'https://oceanolimited.com/api';
-  emp_id:any = ""
-  decodel:any
+  emp_id: any = ""
+  decodel: any
   endpoint: string = 'http://localhost:3000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
-  constructor(private http: HttpClient, public router: Router) {}
+  constructor(private http: HttpClient, public router: Router) { }
   // Sign-up
-  signUp(user: User): Observable<any> {
+  signUp(user: any): Observable<any> {
     let api = `${this.endpoint}/employee/`;
     return this.http.post(api, user).pipe(catchError(this.handleError));
   }
@@ -32,16 +33,21 @@ export class AuthService {
       .subscribe((res: any) => {
         if (res.success == 1) {
           localStorage.setItem('access_token', res.token);
-        this.getUserProfile(res._id).subscribe((res) => {
-          console.log(res)
-          this.currentUser = res;
-          this.router.navigate(['user-profile/' + res.data[0].employee_id]);
-        });
+          this.getUserProfile(res._id).subscribe((res) => {
+            console.log(res)
+            this.currentUser = res;
+            this.router.navigate(['user-profile/' + res.data[0].employee_id]);
+          });
         } else {
           console.log(res)
         }
-        
+
       });
+  }
+  register(user: any): Observable<any>  {
+    console.log(user)
+    let api = `${this.endpoint}/employee/`;
+    return this.http.post(api, user).pipe(catchError(this.handleError));
   }
   getToken() {
     return localStorage.getItem('access_token');
@@ -59,7 +65,7 @@ export class AuthService {
   // User profile
   getUserProfile(id: any): Observable<any> {
     this.emp_id = localStorage.getItem("access_token");
-    this.decodel =jwt_decode(this.emp_id)
+    this.decodel = jwt_decode(this.emp_id)
     let api = `${this.endpoint}/employee/${this.decodel.result.employee_id}`;
     return this.http.get(api, { headers: this.headers }).pipe(
       map((res) => {
@@ -68,6 +74,72 @@ export class AuthService {
       catchError(this.handleError)
     );
   }
+
+  province(): Observable<any> {
+    let api = `${this.endpoint}/utility/province`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+  district(): Observable<any> {
+    let api = `${this.endpoint}/utility/district`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+  village(): Observable<any> {
+    let api = `${this.endpoint}/utility/village`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+  company(): Observable<any> {
+    let api = `${this.endpoint}/utility/company`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+  department(): Observable<any> {
+    let api = `${this.endpoint}/utility/department`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+  major(): Observable<any> {
+    let api = `${this.endpoint}/utility/major`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+  position(): Observable<any> {
+    let api = `${this.endpoint}/utility/position`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+
   // Error
   handleError(error: HttpErrorResponse) {
     let msg = '';
